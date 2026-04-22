@@ -1,0 +1,3 @@
+# Global Header
+
+Details about the global header...

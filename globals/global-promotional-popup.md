@@ -1,0 +1,3 @@
+# Global Promotional Popup
+
+Details about the global promotional popup...

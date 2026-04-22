@@ -1,0 +1,3 @@
+# Global Announcement Bar
+
+Details about the global announcement bar...

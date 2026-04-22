@@ -1,0 +1,3 @@
+# Global Mobile Info Bar
+
+Details about the global mobile info bar...

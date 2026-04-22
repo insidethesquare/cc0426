@@ -1,0 +1,3 @@
+# Global Cookie Alert
+
+Details about the global cookie alert...

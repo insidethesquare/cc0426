@@ -1,0 +1,3 @@
+# Global Color Themes
+
+Details about the global color themes...

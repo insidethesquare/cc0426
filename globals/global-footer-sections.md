@@ -1,0 +1,3 @@
+# Global Footer Sections
+
+Details about the global footer sections...

@@ -1,0 +1,3 @@
+# Global Search Results Page
+
+Details about the global search results page...

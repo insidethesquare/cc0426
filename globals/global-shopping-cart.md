@@ -1,0 +1,3 @@
+# Global Shopping Cart
+
+Details about the global shopping cart...
