@@ -1,10 +1,140 @@
-# Squarespace Term Glossary
+# Custom Codey Glossary
 
-Learning how to use a new program like Squarespace means you’ll need to know a lot of terms that you might not have encountered before. That’s why I created this glossary - I wanted to make sure you knew the words that you’ll encounter in the Forum, on my blog, and right here in the Squarespace CSS Cheat Sheet.
+Last Updated: 22 APril 2026
 
-This list is in alphabetical order, and you can use the links in the table of contents below to quickly jump to a specific definition.
+This file teaches Codey how to interpret what Squarespacers actually say. Users rarely use the exact terms that match selectors — they describe what they see. This glossary bridges that gap.
 
-## Table of Contents
+Codey uses this file BEFORE generating code, to decide whether to answer immediately, answer-with-an-assumption, or stop and ask a clarifying question.
+
+---
+
+## Tier 1: Synonyms (resolve silently)
+
+Codey should silently interpret the phrase on the left as the concept on the right. No clarification needed — users call the same thing different names, and Codey just knows.
+
+Format: `user phrase` → `canonical concept` (optional note)
+
+### Header & Navigation
+- `header button` → header_cta
+- `header cta` → header_cta
+- `main menu button` → header_cta
+- `header call to action` → header_cta
+- `top right button` → header_cta
+- `nav button` → header_cta
+- `top nav` → header_navigation
+- `main menu` → header_navigation (but see Tier 3 — could also mean mobile_menu)
+- `main navigation` → header_navigation
+- `nav links` → header_navigation_links
+
+### Logo
+- `logo` → site_title (could be image or text)
+- `site logo` → site_title
+- `brand` → site_title
+
+### Mobile Menu
+- `hamburger menu` → mobile_menu
+- `hamburger icon` → mobile_menu_icon
+- `burger menu` → mobile_menu
+- `burger` → mobile_menu_icon
+- `menu icon` → mobile_menu_icon (on mobile)
+
+### Blog
+- `blog page` → blog_collection_page
+- `blog` → [add context — is it the landing page or a single post?]
+- `blog post` → individual_blog_post
+- `article` → individual_blog_post
+
+---
+
+## Tier 2: Soft Assumptions (answer confidently, note the assumption)
+
+When users say these phrases, Codey should pick the most likely meaning, answer right away, and briefly mention the assumption so the user can correct it if needed.
+
+Format:
+---
+
+Phrase: `image` / `images` / `photo` / `picture`
+Default: image_block
+Also possible: summary_block_thumbnail, blog_post_thumbnail, gallery_section, product_image, banner_image
+Codey's opening line: "Working on your image block — if it's actually a gallery, blog thumbnail, or product image, let me know and we'll swap approaches."
+
+---
+
+Phrase: `button`
+Default: button_block
+Also possible: header_cta, form_submit_button, newsletter_button, add_to_cart_button
+Codey's opening line: "Styling your button block — if you meant the header CTA, a form submit button, or a cart button, shout and we'll adjust."
+
+---
+
+Phrase: `video`
+Default: video_block
+Also possible: video_background_section, video_collection_page
+Codey's opening line: "Working on your video block — if it's a video background in a section or a video from your video collection, let me know."
+
+---
+
+Phrase: `menu`
+Default: header_navigation (on desktop)
+Also possible: mobile_menu, menu_block (restaurant menu feature), dropdown_folder
+Codey's opening line: "Styling your main site navigation — if you meant the mobile hamburger menu or a restaurant-style menu block, let me know."
+
+---
+
+Phrase: `background`
+Default: page_section_background
+Also possible: full_site_background, block_background, image_overlay
+Codey's opening line: "Updating your page section background — if you meant the site-wide background or a specific block's background, we'll pivot."
+
+---
+
+## Tier 3: Forced Clarifications (stop and ask before answering)
+
+These are the dangerous ones. A wrong guess produces code that looks right but doesn't work, which erodes trust. Codey MUST pause and ask before generating any code.
+
+---
+Phrase trigger: `events` / `event block` / `events page`
+Why this is dangerous: "Reservations Block" (formerly called Events Block) is a Tock booking widget on a content page. "Events" collection is a separate collection page type for event listings. Completely different selectors.
+Question Codey should ask: "Quick check before I write the code — are you working on the Reservations block (the 'Book Now' button that connects to Tock), or your Events collection (the page that lists all your events)?"
+Options to offer:
+- Reservations Block (Tock booking button)
+- Events collection page (event listings)
+- Individual event page
+
+---
+
+Phrase trigger: `mobile menu` + detected v7 signals (words like "Brine", "Bedford", "Pacific", "York", "theme", "version 7", "7.0")
+Why this is dangerous: v7 mobile menus use completely different selectors per theme. Guessing wrong = code does nothing.
+Question Codey should ask: "Your mobile menu selectors depend on your theme. Which theme are you using — Brine, Bedford, Pacific, York, or a different one?"
+Options to offer:
+- Brine
+- Bedford
+- Pacific
+- York
+- Not sure / different theme
+
+---
+
+Phrase trigger: `section background` / `section background color` / `section background not showing`
+Why this is dangerous: Fluid Engine sections have three layers (section, section-background, content-wrapper) and the section-border can cover the background. Classic Editor sections work differently. If Codey writes Fluid code for a Classic section, the code silently does nothing.
+Question Codey should ask: "Is this a Fluid Engine section or a Classic Editor section? (Fluid is the newer grid-based editor with drag handles; Classic is the older layout with rows and columns.)"
+Options to offer:
+- Fluid Engine (newer grid editor)
+- Classic Editor (rows and columns)
+- Not sure
+
+---
+
+Phrase trigger: `cookie alert` + user mentions existing code not working, OR user is working with pre-July 2024 code
+Why this is dangerous: Cookie Alert selectors changed between July 10–11, 2024. Old code still references old selectors that no longer work.
+Question Codey should ask: "Quick heads up — Squarespace changed the cookie alert selectors in July 2024. Is this a fresh setup, or are you updating code you wrote before then?"
+Options to offer:
+- New setup (use current selectors)
+- Updating pre-July 2024 code
+
+
+
+# Squarespace Term Glossary: definitions of common terms
 
 ---
 
@@ -24,9 +154,6 @@ This is called a temporary redirect; it notes that a page is currently living at
 
 A page that appears when a visitor tries to access a page on your site that doesn't exist, provides a friendly and helpful error message. There is an automatic one available in Squarespace, but you can also assign a custom one.
 
-**Related Terms:** System page
-
-**Related Resources:** [5 Things Your 404 Page Needs](https://insidethesquare.co/resources/404-page)
 
 ## #️⃣ 5, 7.0 & 7.1
 
@@ -34,9 +161,6 @@ When speaking about Squarespace, 7., and 7.1 are referring to the version of the
 
 **Related Terms:** template, theme, version
 
-**Related Resources:**
-
-- [How to figure out what version of Squarespace you are using](https://insidethesquare.co/theme)
 
 ## 🛒 Abandoned Cart
 
@@ -50,9 +174,6 @@ Accordion blocks display a list of titles with additional descriptions that can 
 
 **Related Terms:** Content Block
 
-**Related Resources:**
-
-- [Accordion block settings tutorial](https://insidethesquare.co/squarespace-tutorials/accordion)
 
 ## 📝 Alt Text
 
@@ -60,15 +181,12 @@ Alt text, short for alternative text, plays a vital role in web accessibility. I
 
 **Related Terms:** SEO
 
-**Related Resources:**
 
-- [How to add alt text to an image in Squarespace](https://insidethesquare.co/tiny/alt-text)
 
 ## 📈 Analytics
 
 The systematic computational analysis of data or statistics. This term is used to describe any and all data tracked about your website traffic, including but not limited to where visitors came from, what pages they visited, how long they stayed on those pages, and when they left.
 
-**Related Resources:** [Squarespace Analytics 101: 5 website metrics you need to track](https://insidethesquare.co/podcast/20)
 
 ## ⚓ Anchor text / Anchor Link
 
@@ -76,13 +194,11 @@ Anchor text refers to a word or set of terms that, when clicked on, will take yo
 
 **Related Terms:** Content link, URl slug
 
-**Related Resources:** [How to add an anchor link to Squarespace](https://insidethesquare.co/squarespace-tutorials/anchor-links-in-squarespace)
 
 ## 📣 Announcement Bar
 
 A customizable bar at the top of your website used to highlight important messages or promotions.
 
-**Related Resources:** [Announcement Bar Customization Tutorials](https://insidethesquare.co/squarespace-tutorials/tag/announcement+bar)
 
 ## 🗂️ Archive Block
 
@@ -90,7 +206,6 @@ Archive blocks can help organize your collection page content, like blogs and pr
 
 **Related terms:** Content block, summary, collection list, collection item
 
-**Related Resources:** [How to Customize Archive Blocks in Squarespace](https://insidethesquare.co/squarespace-tutorials/archive)
 
 ## 🎵 Audio Block
 
@@ -98,10 +213,6 @@ Audio blocks let you add an MP3 or M4A file from your computer.
 
 **Related Terms:** Content block
 
-**Related Resources:**
-
-- [How to add an audio block to Squarespace](https://insidethesquare.co/tiny/audio-track-tt)
-- [How to customize the audio block](https://insidethesquare.co/squarespace-tutorials/audio-player)
 
 ## 👋 Author Profiles
 
@@ -113,7 +224,7 @@ Showcasing individual author profiles on your blog posts, providing information 
 
 In Squarespace, an auto layout refers to a layout that organizes your content automatically, restructuring it for various screen sizes. Commonly used to refer to a list section, gallery section, or collection list.
 
-**Related Resources:** [Squarespace Page Sections](https://insidethesquare.co/podcast/03)
+
 
 ## 🤖 Auto Pages
 
@@ -125,7 +236,6 @@ Auto-pages are pages on your website created automatically by Squarespace. These
 
 The Bandsintown block is an integration with the Bandsintown.com website. The content of this block is controlled by that website.
 
-**Related Resources:**  [Musicians Guide To Building A Websit](https://forum.squarespace.com/topic/285814-make-a-website-that-rocks-the-musicians-guide-to-building-a-squarespace-website/)e
 
 ## 🛏️ Bedford
 
@@ -133,7 +243,6 @@ A popular Squarespace 7.0 template family known for its flexibility and customiz
 
 **Related Terms:** templates, themes, Brine
 
-**Related Resources:** [Learn more about Squarespace themes](https://insidethesquare.co/themes)
 
 ## ✍️ Blog
 
@@ -141,12 +250,7 @@ A section of your website where you can publish articles and posts / An online j
 
 **Related Terms:** blog post, collection list, author profile
 
-**Related Resources:**
 
-- [Learn how to customize blogs in Squarespace with CSS](https://insidethesquare.co/blogs)
-- [What is the difference between a blog & a portfolio in Squarespace?](https://insidethesquare.co/blog-vs-portfolio)
-- [What makes a good blog post great](https://insidethesquare.co/podcast/21)?
-- [Transform Your Squarespace Blog into an SEO Powerhouse](https://insidethesquare.co/podcast/34)
 
 ## 🫙 Brine
 
@@ -154,7 +258,6 @@ A popular Squarespace 7.0 template family known for its flexibility and customiz
 
 **Related terms:** 7.0, bedford, template, theme
 
-**Related Resources:** [Learn more about Squarespace themes](https://insidethesquare.co/themes)
 
 ## 🖥 Browser
 
@@ -166,9 +269,6 @@ Button blocks are an important part of any Squarespace website. You can use them
 
 **Related Terms:** CTA, call to action, header elements
 
-**Related resources:**
-
-- [Tutorials about customizing buttons](https://insidethesquare.co/buttons)
 
 ## 🗓 Calendar
 
@@ -176,9 +276,6 @@ Calendar blocks can display blog posts, products, images, and events that are sc
 
 **Related Terms:** Content block, event calendar
 
-**Related Resources:**
-
-- [How to customize a Squarespace calendar block](https://insidethesquare.co/squarespace-tutorials/custom-calendar)
 
 ## 📞 Call To Action (CTA)
 
@@ -206,9 +303,6 @@ Commonly used by blogs, posts can be tagged with categories, making it easier fo
 
 Chart blocks create an easy way to visualize data points directly on your Squarespace site.
 
-**Related Resources:**
-
-- [How to customize the chart block in Squarespace](https://insidethesquare.co/squarespace-tutorials/charts)
 
 ## 🛒 Checkout
 
@@ -216,9 +310,6 @@ The process by which customers complete a purchase on your eCommerce site.
 
 **Related Terms:** e-commerce, store, product
 
-**Related Resources:**
-
-- [How to customize the checkout button in Squarespace](https://insidethesquare.co/squarespace-tutorials/checkout-button?rq=checkout)
 
 ## 🏛 Classic editor
 
@@ -226,9 +317,6 @@ Classic editor refers to the original type of page section in Squarespace 7.1, a
 
 **Related Terms:** 7.0, blog, page section, theme, fluid engine
 
-**Related Resources:**
-
-- [Learn more about Squarespace themes](https://insidethesquare.co/theme)
 
 ## 👩🏼‍💻 Code Block
 
@@ -242,9 +330,6 @@ A Squarespace collection is a set of page types that use nested URLs. For exampl
 
 **Related Terms:** nested url, blog, store.
 
-**Related Resources:**
-
-- [What’s the difference between a bog and a portfolio](https://insidethesquare.co/blog-vs-portfolio)
 
 ## 📙 Collection Item
 
@@ -268,7 +353,6 @@ A common nickname for the Squarespace editing interface where you see your websi
 
 Any visitor can fill out the form and submit it to send a message to the site owner. Alternatively, it can trigger an automated email sequence.
 
-**Related Resources:** [Custom form style tutorials](https://insidethesquare.co/squarespace-tutorials/tag/form)
 
 ## 🧱 Content Blocks
 
@@ -286,7 +370,6 @@ Content link blocks to add a clickable preview of a page on your site. This is a
 
 Certain regions require website owners to inform visitors of cookies that are being used on a website, and Squarespace does just that! I strongly recommend adding a cookie alert to your website, and seeking legal advice on what text to include and how to set up the confirm & deny options.
 
-**Relate Resources:** [How to customize your Squarespace cookie alert](https://insidethesquare.co/squarespace-tutorials/cookie-alert)
 
 ## 📄 Cover Page
 
@@ -294,13 +377,11 @@ A single-page layout used for creating visually impactful landing pages or promo
 
 **Related Terms:** landing page, 7.0, 7.1
 
-**Related Resources:** [How to create a landing page in Squarespace](https://insidethesquare.co/tiny/landing-page)
 
 ## 👩🏼‍💻 CSS
 
 CSS stands for cascading style sheet; a code language that tells a computer browser how to display the style of a site. Squarespace writes your CSS for you based on the choices you make in your design menu. You can add custom CSS to Squarespace to personalize the design and appearance of your Squarespace website beyond the built-in options.
 
-**Related Resources:** [Free training on CSS basics for Squarespace](https://insidethesquare.co/learn)
 
 ## 👯‍♀️ Customer Accounts
 
@@ -334,10 +415,6 @@ Inside Squarespace, a digital product is content that requires a login to access
 
 **Related Terms:** e-commerce, product, online store
 
-**Related Resources:**
-
-- [How to customize the digital product block](https://insidethesquare.co/squarespace-tutorials/digital-product)
-- [How to enable a blog paywall](https://insidethesquare.co/squarespace-tutorials/paywall-text)
 
 ## 💰 eCommerce
 
@@ -345,9 +422,6 @@ E-commerce is the term used for conducting business transactions electronically.
 
 **Related Terms:** checkout, digital products
 
-**Related Resources:**
-
-- [How to Sell Digital Products on Squarespace](https://insidethesquare.co/podcast/27)
 
 ## 🪆 Embed
 
@@ -365,14 +439,6 @@ A collection list designed to be an interactive calendar that helps you showcase
 
 **Related Terms:** collection list
 
-**Related Resources:**
-
-- [Learn how to customize events with code](https://insidethesquare.co/squarespace-tutorials/tag/event)
-- [How to turn Event Calendar Links into Buttons](https://insidethesquare.co/squarespace-tutorials/event-calendar-links)
-- [How to keep event info visible on a scroll in Squarespace](https://insidethesquare.co/squarespace-tutorials/sticky-event-info)
-- [How to customize event date tags in Squarespace](https://insidethesquare.co/squarespace-tutorials/custom-event-dates)
-- [How to customize event list titles in Squarespace](https://insidethesquare.co/squarespace-tutorials/event-title)
-- [How To Add a Timezone To Events in Squarespace](https://insidethesquare.co/squarespace-tutorials/event-time-zone)
 
 ## 📄 Event Page
 
@@ -380,19 +446,16 @@ A page within an event list that has additional information about an event. Even
 
 **Related Terms:** event calendar, collection item, classic editor
 
-**Related Resources:** [How To Add a Timezone To Events in Squarespace](https://insidethesquare.co/squarespace-tutorials/event-time-zone)
 
 ## ⭐️ Favicon
 
 A small icon that is displayed in the browser tab next to the page title. The recommended size is 200px by 200px, and the recommended file type is PNG. Sometimes referred to as a browser icon.
 
-**Related Resources:** [How to add a favicon to Squarespace 7.1](https://insidethesquare.co/tiny/favicon)
 
 ## 👟 Footer
 
 The bottom section of a web page that often contains additional links and information. In Squarespace 7.1 you can add multiple sections to your footer.
 
-**Related Resources:** [Important Things to Include In Your Website Footer](https://insidethesquare.co/podcast/05)
 
 ## 🌊 Fluid Engine
 
@@ -414,7 +477,6 @@ Gallery sections display a collection of images. These images can have descripti
 
 **Related Terms:** page section, auto layout
 
-**Related Resources:** [Overview of Squarespace Page Sections](https://insidethesquare.co/podcast/03)
 
 ## ⎅ Grid
 
@@ -428,7 +490,6 @@ The top section of your website that typically includes your logo, navigation me
 
 **Related Terms:** header elements
 
-**Related Resources:** [Squarespace header design features](https://insidethesquare.co/tiny/header)
 
 ## 🧢 Header Elements
 
@@ -436,7 +497,6 @@ The top section of your website that contains your site title/logo as well as yo
 
 **Related Terms:** CTA, social media links, mobile menu
 
-**Related Resources:** [Squarespace header design features](https://insidethesquare.co/tiny/header)
 
 ## 🦸‍♀️ Hero banner
 
@@ -466,7 +526,6 @@ A versatile page type that allows you to stack multiple pages vertically, index 
 
 **Related Terms:** Brine, theme
 
-**Related Resources:** [How to tell what version of Squarespace you are using](https://insidethesquare.co/themes)
 
 ## ⛓ Integration
 
@@ -484,7 +543,6 @@ This is a page on your website that is used for specific traffic or advertisemen
 
 **Related Terms:** opt-in, URL slug, URL redirect
 
-**Related Resources:** [How to create a landing page in Squarespace](https://insidethesquare.co/tiny/landing-page)
 
 ## ⎯ Line
 
@@ -504,7 +562,6 @@ A list section is a type of auto layout section that organizes list item content
 
 **Related Terms:** page section, auto layout
 
-**Related Resources:** [Learn how to create & customize list sections](https://insidethesquare.co/list)
 
 ## 🗺 Map
 
@@ -524,7 +581,6 @@ Password-protected sections of your website with exclusive content. In Squarespa
 
 **Related Terms:** member sign up, digital product
 
-**Related Resources:** [How to set up a membership site using Squarespace](https://insidethesquare.co/podcast/31)
 
 ## 🙋‍♀️ Member Sign Up
 
@@ -532,7 +588,6 @@ When you create a Members Area within your Squarespace site, you can encourage p
 
 **Related Terms:** member area, digital product
 
-**Related Resources:** [How to set up a membership site using Squarespace](https://insidethesquare.co/podcast/31)
 
 ## 🍽 Menu Block
 
@@ -540,7 +595,6 @@ A premium feature for business and commerce plans, the menu content block allows
 
 **Related Terms:** content block
 
-**Related Resources:** [How to change the background of a menu block in Squarespace](https://insidethesquare.co/squarespace-tutorials/custom-menu-block?rq=menu%20block)
 
 ## 🔢 Metadata
 
@@ -548,7 +602,6 @@ Information about a webpage that helps search engines understand its content. Mo
 
 **Related Terms:** SEO, page, collection item
 
-**Related Resources:** [Learn all about SEO specifically for Squarespace](https://insidethesquare.co/tiny/tag/SEO)
 
 ## 📱 Mobile Information Bar
 
@@ -578,7 +631,6 @@ A URL slug for a collection item. Ex: domain.com/blog/post
 
 A feature that allows visitors to subscribe to your email newsletter for updates, promotions, and exclusive content. They currently integrate with Squarespace Email Campaigns, Mailchimp, Google Drive and Zapier.
 
-**Related Resources:** [How to customize your newsletter block](https://insidethesquare.co/squarespace-tutorials/newsletter-style)
 
 ## 🙋‍♀️ Opt-in
 
@@ -592,7 +644,6 @@ A page section is a space in a Squarespace website that you can add content to. 
 
 **Related Terms:** classic editor, ****fluid engine
 
-**Related Resources:** [Overview of Squarespace Page Sections](https://insidethesquare.co/podcast/03)
 
 ## 📑 Page
 
@@ -600,7 +651,6 @@ Individual sections of your website, such as the homepage, about page, or contac
 
 **Related Terms:** collection list, collection page, auto layout, index page
 
-**Related Resources:** [An overview of Squarespace Page Types](https://insidethesquare.co/podcast/02)
 
 ## ↔️ Pagination
 
@@ -608,7 +658,6 @@ Automatically generated links that help visitors navigate to the previous and ne
 
 **Related Terms:** blog, portfolio, collection item
 
-**Related Resources:** [Custom code tutorials for pagination](https://insidethesquare.co/search?f_collectionId=60cf99d0bd16051ed951517b&q=pagination)
 
 ## 🌠 Parallax
 
@@ -618,16 +667,13 @@ A design technique where the background moves at a different speed than the fore
 
 Restricting access to certain pages or content on your website by requiring visitors to enter a password. This can be set on an individual page level or for the entire site.
 
-**Related Resources:**
 
-- [How to password protect your Squarespace website](https://insidethesquare.co/tiny/site-password)
-- [How to password protect a single page on your Squarespace website](https://insidethesquare.co/tiny/password-page)
 
 ## 🤑 Premium feature
 
 Squarespace features that are only available for websites using a business or commerce-level Squarespace subscription.
 
-**Related resources:** [Learn about the current premium features offered by Squarespace](https://support.squarespace.com/hc/en-us/articles/115015517328-Premium-features)
+
 
 ## 🧱 Product Blocks
 
@@ -635,7 +681,6 @@ Product blocks allow you to showcase an item for sale in your Squarespace store.
 
 **Related Terms:** content block, ecommerce, digital product
 
-**Related Resources:** [How to customize the Digital Product Block](https://insidethesquare.co/squarespace-tutorials/digital-product)
 
 ## 👯‍♀️ Product Variants
 
@@ -643,17 +688,12 @@ Different versions or options that are available for a particular product, such 
 
 **Related Terms:** ecommerce, inventory, product block
 
-**Related Resources:**
-
-- [How to customize product variant buttons in Squarespace](https://insidethesquare.co/squarespace-tutorials/variant-buttons)
 
 ## 🎟 Promotional Pop-Ups
 
 Attention-grabbing windows that pop up on your website to showcase special deals, new products, or upcoming events.
 
-**Related Resources:**
 
-- [How to create a marketing popup in Squarespace](https://insidethesquare.co/squarespace-tutorials/marketing-popup-setup)
 
 ## 👀 Quick View
 
@@ -661,7 +701,6 @@ When you add a product block to a standard page in Squarespace, you can enable q
 
 **Related Terms:** Product Block.
 
-**Related Resources:** [How to customize the product quick view](https://www.youtube.com/watch?v=pYZL6z2bILM)
 
 ## 💬 Quote Blocks
 
@@ -669,7 +708,6 @@ Quote blocks display a special type of text content, separating the quote text a
 
 **Related Terms:** content block
 
-**Related Resources:** [How to customize a Squarespace quote block](https://insidethesquare.co/squarespace-tutorials/quote-block)
 
 ## 🔀 Redirect
 
@@ -697,7 +735,6 @@ An automated process that shares newly published content from a website or blog 
 
 A scrolling marquee block can have multiple text items that scroll across the screen. You can change the direction, speed, content, and even the background color and text types using built-in features.
 
-**Related Resources:** [How to use a custom font for the scrolling marquee](https://insidethesquare.co/squarespace-tutorials/marquee-font)
 
 ## 🔎 Search Bar / Search Block
 
@@ -705,11 +742,7 @@ A tool that allows visitors to search for specific content or products on your w
 
 You can add a search content block for your entire site, or specify a specific collection.
 
-**Related Resources:**
 
-- [How to add a site search bar above your Squarespace header](https://insidethesquare.co/squarespace-tutorials/header-search)
-- [How to Customize the Search Results Page in Squarespace](https://insidethesquare.co/squarespace-tutorials/search-results)
-- [How to customize the search bar in Squarespace](https://insidethesquare.co/squarespace-tutorials/search-bar)
 
 ## 🕵️‍♀️ Search Engine Optimization (SEO)
 
@@ -717,11 +750,6 @@ The concept or process of making changes to a webpage to improve its organic sea
 
 **Related Terms:** metadata, alt tag
 
-**Related Resources:**
-
-- [5 tips that will Boost Your Site's Visibility in search](https://insidethesquare.co/podcast/26)
-- [Transform Your Squarespace Blog into an SEO Powerhouse](https://insidethesquare.co/podcast/34)
-- [Squarespace SEO Myths - Debunked!](https://insidethesquare.co/podcast/07)
 
 # 📃 Search results page
 
@@ -729,9 +757,6 @@ Squarespace automatically creates a search results page on every website with th
 
 **Related Terms:** search block, URL slug, auto layout
 
-**Related Resources:**
-
-- [How to Customize the Search Results Page in Squarespace](https://insidethesquare.co/squarespace-tutorials/search-results)
 
 ## 🗄 Server
 
@@ -761,7 +786,6 @@ Easily identifiable icons are linked to your social media profiles, making it ef
 
 **Related Terms:** header, header elements, content link
 
-**Related Resources:** [How to change the color of the social media icons](https://insidethesquare.co/squarespace-tutorials/mobile-menu-icons)
 
 ## ◼️ Squarespace
 
@@ -769,11 +793,6 @@ Squarespace is a web based program platform  that allows individuals and busine
 
 **Related terms:** everything in this glossary 😅
 
-**Related Content:** [How to build a Squarespace website](https://www.youtube.com/watch?v=gEeaiA1iCaA)
-
-[How to build a Squarespace website using ChatGPT](https://www.youtube.com/watch?v=8dMLbWELhkY)
-
-[Squarespace Blueprint: Live Workshop](https://www.youtube.com/watch?v=yYx5poCzcPQ)
 
 ## 💌 Squarespace Campaigns
 
@@ -781,13 +800,11 @@ Squarespace Campaigns is a feature within the Squarespace platform that enables 
 
 **Related Terms:** contact form, CTA, ecommerce, landing page, newsletter block, opt-in, Squarespace
 
-**Related Content:** [How to build your email list using Squarespace](https://www.youtube.com/watch?v=SkWCb_rsVuI)
 
 ## 🔌 Squarespace Extensions
 
 Third-party plugins and integrations that expand the functionality and capabilities of your Squarespace site, allowing you to add extra features and tools with ease.
 
-**Related Resources:** [List of current Squarespace Extensions](https://www.squarespace.com/extensions/home)
 
 ## 🔐 SSL (Secure Sockets Layer)
 
@@ -807,13 +824,6 @@ A popular payment processor Stripe, making it easy to accept credit card payment
 
 Summary blocks display content from collection pages, like blog posts, and products. You can filter the collection to only display content that is marked as featured or organized by a specific tag or category. You can choose to display different pieces of content in a variety of layouts by selecting different display options inside the Squarespace editor.
 
-**Related Resources:**
-
-- [How To Customize Summary Block Fonts in Squarespace](https://insidethesquare.co/squarespace-tutorials/summary-font)
-- [How to change read more links on summary blocks in Squarespace](https://insidethesquare.co/squarespace-tutorials/summary-read-more)
-- [How to create custom hover effects for Squarespace summary blocks](https://insidethesquare.co/squarespace-tutorials/summary-hover-effects)
-- [How to Customize Summary Blocks in Squarespace](https://insidethesquare.co/squarespace-tutorials/summary-styles)
-- [How to create equal-height blog summary blocks in Squarespace](https://insidethesquare.co/squarespace-tutorials/equal-height-summary)
 
 ## 🛒 Shopping Cart
 
@@ -833,7 +843,6 @@ A pre-designed layout that serves as the foundation for your website design. Squ
 
 **Related Terms:** 7.0, 7.1, Bedford, Brine, theme
 
-**Related Resources:** [Learn more about Squarespace 7.0 themes](https://insidethesquare.co/theme)
 
 ## 💬 Testimonials
 
@@ -845,11 +854,6 @@ In the Site Styles menu built into Squarespace, you can change the font family a
 
 **Related Terms:** content block, quote block
 
-**Related Resources:**
-
-- [Custom text-related tutorials](https://insidethesquare.co/text)
-- [How to style selected text in Squarespace](https://insidethesquare.co/squarespace-tutorials/selected-text)
-- [How to highlight text in Squarespace](https://insidethesquare.co/squarespace-tutorials/text-highlight)
 
 🗂 Theme
 
@@ -857,7 +861,6 @@ Squarespace 7.0 website templates belong to a specific theme family. Templates w
 
 **Related Terms:** 7.0, 7.1, Bedford, Brine, template
 
-**Related Resources:** [Learn more about Squarespace 7.0 themes](https://insidethesquare.co/theme)
 
 ## 👍 Thumbnail
 
@@ -893,7 +896,6 @@ A brand new feature for Squarespace that was released in January 2022, you can h
 
 **Related Terms:** digital product, member area
 
-**Related Resources:** [An overview of video collections in Squarespace](https://insidethesquare.co/video)
 
 ## 👀 WYSIWYG
 
