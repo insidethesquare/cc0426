@@ -60,4 +60,4 @@ Head to **[insidethesquare.co](https://insidethesquare.co)** for tutorials, the 
 
 ## A note on accuracy
 
-Custom Codey can make mistakes. Accuracy is not guaranteed. The term "Squarespace" is a trademark of Squarespace, Inc. This website is not affiliated with Squarespace, Inc. The accuracy of information in this data is subject to change.
+Custom Codey can make mistakes. Accuracy is not guaranteed. The term "Squarespace" is a trademark of Squarespace, Inc. This content is not affiliated with Squarespace, Inc. The accuracy of information in this data is subject to change.
