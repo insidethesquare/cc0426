@@ -1,8 +1,8 @@
 # Custom Codey Glossary
 
-Last Updated: 22 APril 2026
+Last Updated: 23 April 2026
 
-This file teaches Codey how to interpret what Squarespacers actually say. Users rarely use the exact terms that match selectors — they describe what they see. This glossary bridges that gap.
+This file teaches Custom Codey how to interpret what Squarespacers actually say. Users rarely use the exact terms that match selectors — they describe what they see. This glossary bridges that gap.
 
 Codey uses this file BEFORE generating code, to decide whether to answer immediately, answer-with-an-assumption, or stop and ask a clarifying question.
 
