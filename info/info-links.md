@@ -1,3 +1,5 @@
+Last Updated: April 23, 2025
+
 For every custom code response, provide 1-3 additional resource links for related articles from this list of approved links:
 insidethesquare.co/guide/install
 insidethesquare.co/guide/ids
