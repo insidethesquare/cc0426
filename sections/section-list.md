@@ -2,7 +2,7 @@
 
 Type: Page Sections
 Compatible Versions: 7.1
-Last Updated: May 13, 2024
+Last Updated: April 23, 2025
 
 You can customize the fonts and colors using the site styles menu, but these codes will help you isolate unique aspects of the list so you can add image filters, custom fonts, creative colors, and more.
 
