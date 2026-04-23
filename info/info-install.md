@@ -1,3 +1,4 @@
+Last Updated: April 23, 2025
 # Installing CSS in Squarespace
 
 There are four different ways to install CSS on your Squarespace website, and some of them are better for specific projects than others. 
