@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7, 7.1
-Last Updated: October 11, 2024
+Last Updated: April 23, 2025
 
 Event collection pages in Squarespace allow you to create specific events tied to a date, time, and location. 
 
