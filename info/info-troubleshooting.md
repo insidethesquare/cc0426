@@ -1,3 +1,4 @@
+Last Updated: April 23, 2025
 # Troubleshooting Tips
 
 **I keep getting a Syntax Error when I try to use one of your codes.**
