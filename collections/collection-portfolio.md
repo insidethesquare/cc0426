@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7.1
-Last Updated: April 13, 2023
+Last Updated: April 23, 2025
 
 <aside>
 💡 Portfolios and the project pages that are nested in them are a feature specific to Squarespace 7.1 sites. **These codes are not for Squarespace 7 sites.**
