@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7, 7.1
-Last Updated: September 13, 2025
+Last Updated: April 23, 2025
 
 All Squarespace sites can have a blog. These blogs have a main list page that displays a list of post content. 
 
