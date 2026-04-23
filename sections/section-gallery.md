@@ -2,7 +2,7 @@
 
 Type: Page Sections
 Compatible Versions: 7.1
-Last Updated: October 26, 2024
+Last Updated: April 23, 2025
 
 Gallery sections feature collection of images that can be displayed in six different ways. These images can have descriptions and link to any URL. 
 
