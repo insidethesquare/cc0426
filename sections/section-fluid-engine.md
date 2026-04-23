@@ -2,7 +2,7 @@
 
 Type: Page Sections
 Compatible Versions: 7.1
-Last Updated: April 13, 2023
+Last Updated: April 23, 2025
 
 In Squarespace Version 7.1, you can have three types of page sections; fluid engine sections, gallery sections, and list sections. 
 
