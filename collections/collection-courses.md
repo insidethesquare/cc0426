@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7.1
-Last Updated: August 2, 2024
+Last Updated: April 23, 2025
 
 ### 📚Course Overview Page Selectors
 
