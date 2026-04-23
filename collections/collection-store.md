@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7, 7.1
-Last Updated: August 30, 2025
+Last Updated: April 23, 2025
 
 <aside>
 ⭐ Squarespace made MAJOR changes to the product page & storefront selectors. These have been launched to all 7.1 sites as of August 2025. 
