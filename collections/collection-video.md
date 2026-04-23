@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7, 7.1
-Last Updated: December 7, 2024
+Last Updated: April 23, 2025
 
 ## Selectors
 
