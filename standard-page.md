@@ -2,7 +2,7 @@
 
 Type: Collections
 Compatible Versions: 7.1
-Last Updated: September 23, 2025
+Last Updated: April 23, 2025
 
 You can target the entire page container using the selector **#page**  or using the unique collection id for an individual page, which often looks like this: **#collection-1234567890987654321** 
 
